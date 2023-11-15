@@ -19,7 +19,7 @@ export default function createPost() {
   };
 
   fetch(`${process.env.REACT_APP_API_URL}/posts`, requestOptions)
-    .then(response => response.text())
+    .then(response => response.json())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
 }

@@ -8,8 +8,16 @@ import {
   Select,
   Button,
 } from '@chakra-ui/react';
+import getCategories from './Api/getCategories';
+import { useEffect, useState } from 'react';
 
 export default function CreatePost() {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    getCategories(setCategories);
+  }, []);
+
   return (
     <Box>
       <Text>Plaats een blog bericht</Text>
@@ -18,7 +26,9 @@ export default function CreatePost() {
         <Input type="text" placeholder="Geen titel" />
         <FormLabel>Categorie</FormLabel>
         <Select placeholder="Geen categorie">
-          <option value="option1">tech</option>
+          {categories.map(cat => (
+            <option key={cat.id}>{cat.name}</option>
+          ))}
         </Select>
         <FormLabel>Header afbeelding</FormLabel>
         <Input type="file" />

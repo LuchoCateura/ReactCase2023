@@ -1,7 +1,3 @@
-import React from 'react';
-import { useEffect } from 'react';
-import getCategories from './Api/getCategories.js';
-import getPosts from './Api/getPosts.js';
 import { ChakraProvider, Grid, GridItem } from '@chakra-ui/react';
 import Header from './Header';
 import CreatePost from './CreatePost';
@@ -9,10 +5,6 @@ import LatestPosts from './LatestPosts';
 import Footer from './Footer';
 
 function App() {
-  useEffect(() => {
-    getPosts();
-  }, []);
-
   return (
     <ChakraProvider>
       <Grid

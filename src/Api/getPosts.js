@@ -4,7 +4,7 @@ const headers = {
   token: `${process.env.REACT_APP_TOKEN}`,
 };
 
-export default function getPosts() {
+export default function getPosts(setLatestPosts, params) {
   var requestOptions = {
     headers: headers,
     method: 'GET',
@@ -12,10 +12,13 @@ export default function getPosts() {
   };
 
   fetch(
-    `${process.env.REACT_APP_API_URL}/posts?page=1&perPage=10&sortBy=title&sortDirection=asc&searchPhrase=test ber&categoryId=1`,
+    `${process.env.REACT_APP_API_URL}/posts?page=${params.page}&perPage=${params.perPage}&sortDirection=${params.sortDirection}`,
     requestOptions
   )
-    .then(response => response.text())
-    .then(result => console.log(result))
+    .then(response => response.json())
+    .then(result => {
+      console.log(result.data);
+      setLatestPosts(result.data);
+    })
     .catch(error => console.log('error', error));
 }
