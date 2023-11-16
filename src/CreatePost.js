@@ -36,14 +36,15 @@ export default function CreatePost() {
 
       createPost({
         title: title,
-        categorieId: selectedCategory.id,
-        image: image,
         content: content,
+        categorie_id: selectedCategory.id,
+        image: image,
       });
     } else {
       setIsError(true);
     }
   }
+
   return (
     <Box>
       <div>
@@ -68,11 +69,7 @@ export default function CreatePost() {
           ))}
         </Select>
         <FormLabel>Header afbeelding</FormLabel>
-        <Input
-          type="file"
-          accept=".jpg, .jpeg, .png"
-          onChange={e => setImage(e.target.files[0])}
-        />
+        <Input type="file" onChange={e => setImage(e.target.files[0])} />
         <FormLabel>Bericht</FormLabel>
         <Textarea
           type="text"
