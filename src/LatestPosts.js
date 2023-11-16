@@ -4,7 +4,7 @@ import Post from './Post';
 import getPosts from './Api/getPosts';
 
 export default function LatestPosts() {
-  const [latestPosts, setLatestPosts] = useState([]);
+  const [latestPosts, setLatestPosts] = useState({});
   const [params, setParams] = useState({
     page: 1,
     perPage: 4,
@@ -25,11 +25,13 @@ export default function LatestPosts() {
 
   return (
     <Box overflow="auto" h="659px">
-      <SimpleGrid columns={2} spacing="40px">
-        {latestPosts.map(post => (
-          <Post key={post.id} post={post} />
-        ))}
-      </SimpleGrid>
+      {
+        <SimpleGrid columns={2} spacing="40px">
+          {latestPosts.data?.map(post => (
+            <Post key={post.id} post={post} />
+          ))}
+        </SimpleGrid>
+      }
       <Button
         onClick={handleGetMorePosts}
         colorScheme="orange"

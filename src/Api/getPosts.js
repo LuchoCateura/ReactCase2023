@@ -17,7 +17,8 @@ export default function getPosts(setLatestPosts, params) {
   )
     .then(response => response.json())
     .then(result => {
-      setLatestPosts(result.data);
+      console.log(result);
+      setLatestPosts(result);
     })
     .catch(error => console.log('error', error));
 }
