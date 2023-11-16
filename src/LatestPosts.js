@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { SimpleGrid, Button } from '@chakra-ui/react';
+import { SimpleGrid, Button, Box } from '@chakra-ui/react';
 import Post from './Post';
 import getPosts from './Api/getPosts';
 
@@ -24,7 +24,7 @@ export default function LatestPosts() {
   }
 
   return (
-    <>
+    <Box overflow="auto" h="659px">
       <SimpleGrid columns={2} spacing="40px">
         {latestPosts.map(post => (
           <Post key={post.id} post={post} />
@@ -37,6 +37,6 @@ export default function LatestPosts() {
       >
         Laad meer
       </Button>
-    </>
+    </Box>
   );
 }

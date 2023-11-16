@@ -4,12 +4,13 @@ const headers = {
   token: `${process.env.REACT_APP_TOKEN}`,
 };
 
-export default function createPost() {
+export default function createPost(formValues) {
+  console.log(formValues);
   var formdata = new FormData();
-  formdata.append('title', 'Test');
-  formdata.append('content', 'Dit is een test bericht');
-  formdata.append('category_id', '1');
-  formdata.append('image', '', 'wp2324982.jpg');
+  formdata.append('title', formValues.title);
+  formdata.append('content', formValues.content);
+  formdata.append('category_id', formValues.categorieId);
+  formdata.append('image', formValues.image, formValues.image.name);
 
   var requestOptions = {
     headers: headers,
@@ -19,7 +20,7 @@ export default function createPost() {
   };
 
   fetch(`${process.env.REACT_APP_API_URL}/posts`, requestOptions)
-    .then(response => response.json())
+    .then(response => response.text())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
 }
