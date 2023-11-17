@@ -24,7 +24,7 @@ export default function LatestPosts() {
   }
 
   return (
-    <Box overflow="auto" h="659px">
+    <Box overflow="auto" w="642px" h="659px">
       {
         <SimpleGrid columns={2} spacing="40px">
           {latestPosts.data?.map(post => (

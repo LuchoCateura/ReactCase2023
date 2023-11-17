@@ -46,7 +46,7 @@ export default function CreatePost() {
   }
 
   return (
-    <Box>
+    <Box w="451px" h="659px">
       <Text>Plaats een blog bericht</Text>
       <FormControl isRequired>
         <FormLabel>Berichtnaam</FormLabel>
