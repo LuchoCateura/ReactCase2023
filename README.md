@@ -26,7 +26,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 ### `Improvements`
 
-Improvements that I could have made are:
+Improvements that I could have made with more time:
 
 - Use state management library - e.g. Redux
 - Use pagination library
@@ -35,3 +35,5 @@ Improvements that I could have made are:
 - Improve data fetching reusability
 - Use vite instead of webpack
 - Improve requests performance
+- Host this demo app in a cloud provider
+- Notifications to users after post creation
