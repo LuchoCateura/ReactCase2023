@@ -8,10 +8,12 @@ import {
   Textarea,
   Select,
   Button,
+  Center,
 } from '@chakra-ui/react';
 import getCategories from '../Api/getCategories';
 import { useEffect, useState } from 'react';
 import createPost from '../Api/createPost';
+import './../styles.css';
 
 export default function CreatePost() {
   const [categories, setCategories] = useState([]);
@@ -47,15 +49,18 @@ export default function CreatePost() {
 
   return (
     <Box w="451px" h="659px">
-      <Text>Plaats een blog bericht</Text>
+      <Text fontSize="24px" align="left" fontWeight="bold">
+        Plaats een blog bericht
+      </Text>
       <FormControl isRequired>
-        <FormLabel>Berichtnaam</FormLabel>
+        <FormLabel className="form-label">Berichtnaam</FormLabel>
         <Input
           type="text"
           value={title}
           onChange={e => setTitle(e.target.value)}
+          onFocus={() => setTitle('')}
         />
-        <FormLabel>Categorie</FormLabel>
+        <FormLabel className="form-label">Categorie</FormLabel>
         <Select
           value={selectedCategory.name}
           placeholder="Geen Categorie"
@@ -65,10 +70,15 @@ export default function CreatePost() {
             <option key={cat.id}>{cat.name}</option>
           ))}
         </Select>
-        <FormLabel>Header afbeelding</FormLabel>
-        <Input type="file" onChange={e => setImage(e.target.files[0])} />
-        <FormLabel>Bericht</FormLabel>
+        <FormLabel className="form-label">Header afbeelding</FormLabel>
+        <Input
+          py="5px"
+          type="file"
+          onChange={e => setImage(e.target.files[0])}
+        />
+        <FormLabel className="form-label">Bericht</FormLabel>
         <Textarea
+          h="237px"
           type="text"
           value={content}
           onChange={e => setContent(e.target.value)}
@@ -79,10 +89,16 @@ export default function CreatePost() {
           </FormHelperText>
         )}
       </FormControl>
-
-      <Button onClick={handleSubmit} colorScheme="orange" borderRadius="20px">
-        Bericht aanmaken
-      </Button>
+      <Center mt="24px">
+        <Button
+          onClick={handleSubmit}
+          colorScheme="orange"
+          borderRadius="20px"
+          px="48px"
+        >
+          Bericht aanmaken
+        </Button>
+      </Center>
     </Box>
   );
 }
