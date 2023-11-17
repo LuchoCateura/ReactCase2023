@@ -14,7 +14,7 @@ export default function Header() {
         <Image src="/logo.png" alt="social-brothers-logo" />
       </Box>
       <HStack w="123px" color="white" ml="1200px" spacing="32px">
-        <ChakraLink fontWeight="600" as={ReactRouterLink} to="/" isActive>
+        <ChakraLink fontWeight="600" as={ReactRouterLink} to="/">
           Home
         </ChakraLink>
         <ChakraLink fontWeight="600" as={ReactRouterLink} to="/posts">

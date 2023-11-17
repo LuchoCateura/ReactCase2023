@@ -3,7 +3,7 @@ import './../styles.css';
 
 export default function Post({ post }) {
   return (
-    <Box boxShadow="base" rounded="md" bg="white" w="285px" h="217px">
+    <Box boxShadow="base" bg="white" w="285px" h="217px">
       <Box bgImage={post.img_url} bg="tomato" w="100%">
         <HStack px={4} pt="72px" pb="8px" className="post-hline">
           <Text>{post.updated_at.slice(0, 10)}</Text>
