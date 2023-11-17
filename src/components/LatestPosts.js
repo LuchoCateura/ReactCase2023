@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { SimpleGrid, Button, Box } from '@chakra-ui/react';
 import Post from './Post';
-import getPosts from './Api/getPosts';
+import getPosts from '../Api/getPosts';
 
 export default function LatestPosts() {
   const [latestPosts, setLatestPosts] = useState({});

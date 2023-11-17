@@ -9,9 +9,9 @@ import {
   Select,
   Button,
 } from '@chakra-ui/react';
-import getCategories from './Api/getCategories';
+import getCategories from '../Api/getCategories';
 import { useEffect, useState } from 'react';
-import createPost from './Api/createPost';
+import createPost from '../Api/createPost';
 
 export default function CreatePost() {
   const [categories, setCategories] = useState([]);
@@ -47,9 +47,6 @@ export default function CreatePost() {
 
   return (
     <Box>
-      <div>
-        <img id="output" width="200" alt="placeholder" />
-      </div>
       <Text>Plaats een blog bericht</Text>
       <FormControl isRequired>
         <FormLabel>Berichtnaam</FormLabel>

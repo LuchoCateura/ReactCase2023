@@ -1,35 +1,17 @@
-import { Grid, GridItem } from '@chakra-ui/react';
-import Header from './Header';
-import CreatePost from './CreatePost';
-import LatestPosts from './LatestPosts';
-import Footer from './Footer';
+import { Flex, Spacer } from '@chakra-ui/react';
+import CreatePost from './components/CreatePost';
+import LatestPosts from './components/LatestPosts';
+import Layout from './Layout';
 
 function App() {
   return (
-    <Grid
-      templateAreas={`"header header"
-                  "nav main"
-                  "nav footer"`}
-      templateRows="repeat(4, 1fr)"
-      templateColumns="repeat(2, 1fr)"
-      h="200px"
-      gap="1"
-      color="blackAlpha.700"
-      fontWeight="bold"
-    >
-      <GridItem rowSpan={1} colSpan={2} area={'header'}>
-        <Header />
-      </GridItem>
-      <GridItem rowSpan={1} colSpan={1} area={'nav'}>
+    <Layout>
+      <Flex px="162px" mt="64px">
         <CreatePost />
-      </GridItem>
-      <GridItem rowSpan={1} colSpan={1} area={'main'}>
+        <Spacer />
         <LatestPosts />
-      </GridItem>
-      <GridItem rowSpan={2} colSpan={2} area={'footer'}>
-        <Footer />
-      </GridItem>
-    </Grid>
+      </Flex>
+    </Layout>
   );
 }
 

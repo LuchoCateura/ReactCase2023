@@ -5,7 +5,7 @@ export default function Footer() {
     <Center
       bg="black"
       w="100%"
-      p={4}
+      h="32px"
       bottom="0"
       left="0"
       color="white"

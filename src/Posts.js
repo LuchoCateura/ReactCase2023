@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { SimpleGrid, Box, Text, Button, HStack } from '@chakra-ui/react';
-import Post from './Post';
+import Post from './components/Post';
 import getPosts from './Api/getPosts';
+import Layout from './Layout';
 
 export default function Posts() {
   const [posts, setPosts] = useState({});
@@ -34,23 +35,25 @@ export default function Posts() {
   }
 
   return (
-    <Box overflow="auto" h="659px">
-      {
-        <SimpleGrid columns={4} spacing="40px">
-          {posts.data?.map(post => (
-            <Post key={post.id} post={post} />
-          ))}
-        </SimpleGrid>
-      }
-      <HStack mt={5}>
-        <Button onClick={handlePrevious} colorScheme="orange">
-          Previous
-        </Button>
-        <Text>{posts.current_page}</Text>
-        <Button onClick={handleNext} colorScheme="orange">
-          Next
-        </Button>
-      </HStack>
-    </Box>
+    <Layout>
+      <Box overflow="auto" h="659px">
+        {
+          <SimpleGrid columns={4} spacing="40px">
+            {posts.data?.map(post => (
+              <Post key={post.id} post={post} />
+            ))}
+          </SimpleGrid>
+        }
+        <HStack mt={5}>
+          <Button onClick={handlePrevious} colorScheme="orange">
+            Previous
+          </Button>
+          <Text>{posts.current_page}</Text>
+          <Button onClick={handleNext} colorScheme="orange">
+            Next
+          </Button>
+        </HStack>
+      </Box>
+    </Layout>
   );
 }
